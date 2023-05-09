@@ -3,7 +3,7 @@
   <main class="responsive">
     <div class="large-space"></div>
     <div class="large-space"></div>
-    {{> home ''}}
+    {{> home ''}} {{> about ''}}
   </main>
 </body>
 
@@ -23,4 +23,17 @@
       </button>
     </div>
   </article>
+</template>
+
+<template name="about">
+  <details class="absolute bottom padding">
+    <summary>About</summary>
+    <p>GPT sounds like “J'ai pété” in French. It means “I farted”.</p>
+    <p>
+      Source available
+      <a class="link" href="https://github.com/guidouil/jaipt" target="_blank"
+        >here</a
+      >.
+    </p>
+  </details>
 </template>

@@ -1,14 +1,26 @@
 <body>
+  {{> darkMode ''}}
   <main class="responsive">
+    <div class="large-space"></div>
     <div class="large-space"></div>
     {{> home ''}}
   </main>
 </body>
 
+<template name="darkMode">
+  <div class="absolute top right padding">
+    <button class="transparent circle" id="darkModeBtn">
+      <i id="dlModeIcon">{{#if isDark}}light{{else}}dark{{/if}}_mode</i>
+    </button>
+  </div>
+</template>
+
 <template name="home">
   <article class="transparent large no-padding center-align middle-align">
     <div class="padding">
-      <button class="transparent square large padding jaiPtBtn">
+      <button
+        class="transparent square massive padding medium-elevate jaiPtBtn"
+      >
         <i class="massive">💨</i>
       </button>
     </div>

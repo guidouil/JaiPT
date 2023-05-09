@@ -24,7 +24,8 @@
       </button>
 
       {{#if counter}}
-      <h1 class="small">J'ai pété {{counter}} fois.</h1>
+      <h2 class="small center-align">J'ai pété {{formatNumber counter}} fois.</h2>
+      <h3 class="small center-align">Le monde a pété {{formatNumber worldCounter}} fois.</h3>
       {{/if}}
     </div>
   </article>
@@ -36,9 +37,7 @@
     <p>GPT sounds like “J'ai pété” in French. It means “I farted”.</p>
     <p>
       Source available
-      <a class="link" href="https://github.com/guidouil/jaipt" target="_blank"
-        >here</a
-      >.
+      <a class="link" href="https://github.com/guidouil/jaipt" target="_blank">here</a>.
     </p>
   </details>
 </template>

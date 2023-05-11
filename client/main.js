@@ -5,22 +5,28 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import './main.html';
 import { Farts } from '/api/farts';
 
-Template.home.onCreated(() => {
+Template.farts.onCreated(() => {
   const instance = Template.instance();
   instance.subscribe('worldFarts');
+});
+
+Template.home.onCreated(() => {
+  const instance = Template.instance();
   instance.counter = new ReactiveVar(0);
+});
+
+Template.registerHelper('formatNumber', (number) => {
+  return number ? new Intl.NumberFormat().format(number) : false;
+});
+
+Template.registerHelper('worldCounter', () => {
+  const { total } = Farts.findOne({ _id: 'world' });
+  return total;
 });
 
 Template.home.helpers({
   counter() {
     return Template.instance().counter.get();
-  },
-  worldCounter() {
-    const { total } = Farts.findOne({ _id: 'world' });
-    return total;
-  },
-  formatNumber(number) {
-    return new Intl.NumberFormat().format(number);
   },
 });
 

@@ -2,11 +2,15 @@
   <main class="responsive">
     {{> darkMode ''}}
     <div class="large-space"></div>
-    {{> home ''}}
-    <div class="space"></div>
-    {{> about ''}}
+    {{> farts}}
   </main>
 </body>
+
+<template name="farts">
+  {{#if Template.subscriptionsReady}} {{> home ''}}
+  <div class="space"></div>
+  {{> about ''}} {{else}} {{> loading ''}} {{/if}}
+</template>
 
 <template name="darkMode">
   <div class="absolute top right padding">
@@ -33,11 +37,23 @@
 
 <template name="about">
   <details class="absolute bottom padding">
-    <summary>About</summary>
+    <summary class="none"><h4 class="link small">About</h4></summary>
     <p>GPT sounds like “J'ai pété” in French. It means “I farted”.</p>
+    <p>The fart button has been clicked {{formatNumber worldCounter}} times.</p>
     <p>
       Source available
       <a class="link" href="https://github.com/guidouil/jaipt" target="_blank">here</a>.
     </p>
   </details>
+</template>
+
+<template name="loading">
+  <div class="no-padding center-align middle-align">
+    <div class="padding center-align">
+      <div class="large-space"></div>
+      <a class="loader large"></a>
+      <div class="space"></div>
+      <!-- <h4>{{_ 'loading'}}</h4> -->
+    </div>
+  </div>
 </template>
